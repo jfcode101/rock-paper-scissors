@@ -69,7 +69,7 @@ function playGame() {
     max = 0,
     winner = "";
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 5; i++) {
     console.log(` =========> Count: ${i + 1}`);
     let userInput = prompt("Make a choice: ").toUpperCase();
     const playerSelection =
