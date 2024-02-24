@@ -1,3 +1,5 @@
+const btns = document.querySelectorAll(".btn-play");
+
 console.log(` Rock Paper Scissors Game 
 **************************
 `);
@@ -69,49 +71,18 @@ function playGame() {
     max = 0,
     winner = "";
 
-  for (let i = 0; i < 5; i++) {
-    console.log(` =========> Count: ${i + 1}`);
-    let userInput = prompt("Make a choice: ").toUpperCase();
-    const playerSelection =
-      userInput[0] + userInput.slice(1).toLocaleLowerCase();
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const player = btn.innerText;
 
-    console.log("User choice = " + playerSelection);
-    const computerSelection = getComputerChoice();
-
-    console.log(playRound(playerSelection, computerSelection));
-
-    if (playRound(playerSelection, computerSelection).includes("You win!")) {
-      playerScore++;
-    } else if (
-      playRound(playerSelection, computerSelection).includes(`It's a tie!`)
-    ) {
-      tieScore++;
-    } else if (
-      playRound(playerSelection, computerSelection).includes("You loose")
-    ) {
-      computerScore++;
-    }
-
-    // find the winner
-    max = Math.max(playerScore, computerScore, tieScore);
-
-    if (max === playerScore) {
-      winner = "Player";
-    } else if (max === computerScore) {
-      winner = "Computer";
-    } else if (max === tieScore) {
-      winner = `None,`;
-    }
-
-    console.log(`**************************************************`);
-  }
-
-  console.log(`
-  Player Score: ${playerScore}
-  Computer Score: ${computerScore}
-  Tie score: ${tieScore}
-
-  " ${winner} is the winner! "`);
+      console.log("*************************************");
+      console.log("Player choice = ", player);
+      const computer = getComputerChoice();
+      const round = playRound(player, computer);
+      console.log(round);
+      console.log("*************************************");
+    });
+  });
 }
 
 playGame();

@@ -5,8 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./style/s.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <main class="wrapper">
+      <header class="main-header">
+        <h1>Rock Paper Scissors</h1>
+      </header>
+
+      <section class="sect-game">
+        <button type="button" class="btn-play" id="rock">
+          <span class="btn-text">Rock</span>
+          <img src="./images/fist.png" alt="Rock" />
+        </button>
+        <button type="button" class="btn-play" id="paper">
+          <span class="btn-text">Paper</span>
+          <img src="./images/hand-paper.png" alt="Paper" />
+        </button>
+        <button type="button" class="btn-play" id="scissors">
+          <span class="btn-text">Scissors</span>
+          <img src="./images/scissors.png" alt="Scissors" />
+        </button>
+      </section>
+
+      <section class="sect-result"></section>
+    </main>
     <script src="./js/main.js"></script>
   </body>
 </html>
