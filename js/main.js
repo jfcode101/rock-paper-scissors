@@ -1,4 +1,4 @@
-const btns = document.querySelectorAll(".btn-play");
+const playerBtns = document.querySelectorAll(".btn-play");
 
 console.log(` Rock Paper Scissors Game 
 **************************
@@ -69,20 +69,59 @@ function playGame() {
     computerScore = 0,
     tieScore = 0,
     max = 0,
-    winner = "";
+    winner = "",
+    moves = 0;
 
-  btns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+  // for each butt
+  playerBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
       const player = btn.innerText;
 
       console.log("*************************************");
-      console.log("Player choice = ", player);
       const computer = getComputerChoice();
       const round = playRound(player, computer);
+
+      console.log("Player choice = ", player);
       console.log(round);
+      moves++;
+      console.log(`Move number : ${moves}`);
+
       console.log("*************************************");
+
+      /*
+        if the # of moves = 5
+          - display the results
+          - call game over function
+          - call restart the game function
+      
+      */
+      if (moves === 5) {
+        gameOver();
+
+        // Trial : set time out to restart the enable btn click
+        setTimeout(() => {
+          for (const ply of playerBtns) {
+            ply.disabled = false;
+            // set move counter back to zero
+            moves = 0;
+            console.log("Restart the game");
+          }
+        }, 5000);
+      }
     });
   });
 }
 
 playGame();
+
+// Trial Function
+
+// trial Game over function
+function gameOver() {
+  for (const ply of playerBtns) {
+    ply.disabled = true;
+  }
+  console.log("Game Over");
+}
+
+// se

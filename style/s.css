@@ -32,19 +32,25 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 1rem;
+  /* padding: 2rem; */
 }
 
 .main-header {
   height: 100px;
-  background-color: var(--black);
+  background-color: var(--darker-grey);
   color: var(--light-cyan);
 }
 
 .main-header h1 {
   text-align: center;
   line-height: 100px;
+}
+
+.para-text {
+  display: block;
+  line-height: 40px;
+  font-weight: 500;
 }
 
 .sect-game,
